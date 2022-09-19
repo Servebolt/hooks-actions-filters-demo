@@ -1,0 +1,13 @@
+{
+    "name": "servebolt/hooks-demo",
+    "description": "Creates a autoloader for use with hooks demo",
+    "type": "wordpress-plugin",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "homepage": "https://servebolt.com",
+    "autoload": {
+        "psr-4": {
+            "HooksDemo\\": "src/"
+        }
+    }
+}
