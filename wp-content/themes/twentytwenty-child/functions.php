@@ -25,8 +25,8 @@ function child_theme_enqueue_styles() {
  */
 function modify_main_query( $query ) {
     if ( ( $query->is_home() || is_front_page() ) && $query->is_main_query() ) {
-        // The apply filters is for the custom hook 'homepage_postypes'
-        $query->set('post_type', apply_filters('homepage_postypes', ['post']) );    
+        // The apply filters is for the custom hook 'homepage_posttypes'
+        $query->set('post_type', apply_filters('homepage_posttypes', ['post']) );    
     }
 }
 /**
@@ -43,7 +43,7 @@ add_action( 'pre_get_posts', 'modify_main_query');
 add_action('tagemanager_iframe', 'add_google_tagmanager_iframe');
 
 function add_google_tagmanager_iframe () {
-    $code = get_option('google_gtm_code');  ?>
+    $code = get_option('google_gtm_code', 'GTM-123456');  ?>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo $code ?>"'	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <?php
 }
